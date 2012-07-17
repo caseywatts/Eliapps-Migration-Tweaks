@@ -1,0 +1,14 @@
+{
+  "name": "EliApps Migration Tweaks",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "description": "EliApps Migration Tweaks",
+
+    "content_scripts": [{
+    "matches": ["https://identity.yale.edu/*"],
+    "run_at": "document_end",
+    "js": ["eliappsmigrationtweaks.js"]
+  }]
+
+
+}
