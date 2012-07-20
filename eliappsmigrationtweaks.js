@@ -11,9 +11,36 @@
 //}
 
 //}
+
+//hide completed rows
+
+
 function injectit (){
   //$(document).ready(function(){
+
+  function hidecompletedrows(){
+    $('table tr').filter(function(){  
+      return (  $(this).html().indexOf('DeletePantheonAccountInAcsAction') !== -1
+              && $(this).html().indexOf('completed') !== -1
+              && $(this).html().indexOf('true') !== -1
+             )
+    }).hide()
+  }
+
+  function hideselfmigratedrows(){
+    $('table tr').filter(function(){  
+      return (  $(this).html().indexOf('ReSyncMailSyncAction') !== -1
+              && $(this).html().indexOf('completed') !== -1
+              && $(this).html().indexOf('true') !== -1
+             )
+    }).hide()
+  }
+
+
+
   window.setTimeout(function() {
+
+
 
     oTable = jQuery("#userTable").dataTable({
       "bProcessing": false,
@@ -21,6 +48,7 @@ function injectit (){
       "bDestroy": true,
       "bPaginate": false,
       "sAjaxSource": "users",
+      //"fnInitComplete": function(){hidecompletedrows()},
       "aaSorting": [
         [4, 'desc']
       ],
@@ -52,7 +80,13 @@ function injectit (){
 
     $('#netid').focus()
 
-  }, 00);//I was gonna write a timeout but just waiting for window ready seems to fix it?
+    setTimeout(function(){//this has to happen after everything else lol this is hacky
+      hidecompletedrows();
+      hideselfmigratedrows();
+    }, 3000)
+
+  }, 500);
+
 
 }
 var script = document.createElement('script');
