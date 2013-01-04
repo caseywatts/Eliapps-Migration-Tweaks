@@ -36,6 +36,13 @@ function injectit (){
     }).hide()
   }
 
+  function hidecertainnetids(){
+    $('table tr').filter(function(){  
+      return (  $(this).html().indexOf('nk285') !== -1
+             )
+    }).hide()
+  }
+
 
 
   window.setTimeout(function() {
@@ -83,6 +90,7 @@ function injectit (){
     setTimeout(function(){//this has to happen after everything else lol this is hacky
       hidecompletedrows();
       hideselfmigratedrows();
+      hidecertainnetids();
     }, 3000)
 
   }, 500);
