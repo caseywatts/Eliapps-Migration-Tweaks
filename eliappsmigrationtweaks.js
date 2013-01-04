@@ -39,6 +39,9 @@ function injectit (){
   function hidecertainnetids(){
     $('table tr').filter(function(){  
       return (  $(this).html().indexOf('nk285') !== -1
+              && $(this).html().indexOf('bsh24') !== -1
+              && $(this).html().indexOf('amj4') !== -1
+              && $(this).html().indexOf('jdb25') !== -1
              )
     }).hide()
   }
