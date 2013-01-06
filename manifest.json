@@ -1,7 +1,7 @@
 {
   "name": "EliApps Migration Tweaks",
-  "version": "0.0.7",
-  "manifest_version": 7,
+  "version": "0.0.8",
+  "manifest_version": 8,
   "description": "EliApps Migration Tweaks",
 
     "content_scripts": [{
